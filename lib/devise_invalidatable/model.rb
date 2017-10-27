@@ -33,6 +33,9 @@ module Devise
         user_sessions.order('created_at desc').offset(10).destroy_all
       end
 
+      def deactivate_sessions(session_id)
+        user_sessions.where(session_id: session_id).destroy_all
+      end
     end
   end
 end
